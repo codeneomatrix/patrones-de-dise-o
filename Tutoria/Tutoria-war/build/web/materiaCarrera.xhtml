@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <f:view>
+
+
+            <h:form>
+                <h1><h:outputText value="Create"/></h1>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="Idcm:" for="idcm" />
+                    <h:outputLabel id="idcm" value="#{materiacarreraAdm.ultimo()}" title="Idcm"/>
+                    <h:outputLabel value="Idcarr:" for="idcarr" />
+                    <h:inputText id="idcarr" value="#{materiacarreraAdm.materiaCarrera.idcarr}" title="Idcarr" required="true" requiredMessage="The Idcarr field is required."/>
+                    <h:outputLabel value="Idmat:" for="idmat" />
+                    <h:inputText id="idmat" value="#{materiacarreraAdm.materiaCarrera.idmat}" title="Idmat" required="true" requiredMessage="The Idmat field is required."/>
+                    <h:outputLabel value="Semestre:" for="semestre" />
+                    <h:inputText id="semestre" value="#{materiacarreraAdm.materiaCarrera.semestre}" title="Semestre" required="true" requiredMessage="The semestre is required."/>
+                </h:panelGrid>
+                <h:commandButton value="Agregar" action="materiaCarrera" actionListener="#{materiacarreraAdm.agregarMateriacarrera}"></h:commandButton>
+                <a  href="http://localhost:8080/Tutoria-war/">index</a> 
+            </h:form>
+        </f:view>
+
+    </h:body>
+</html>
+

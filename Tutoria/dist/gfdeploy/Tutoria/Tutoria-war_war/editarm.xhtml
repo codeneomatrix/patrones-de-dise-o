@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <ui:composition template="./newTemplate.xhtml">
+            <ui:define name="content">
+                <div align="center">
+        <f:view>
+            <h:form>
+                <h1><h:outputText value="Edit"/></h1>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="Idmateria:" for="idmateria" />
+                    <h:inputText id="idmateria" value="#{materiasAmd.materia.idmateria}" title="Idmateria" required="true" requiredMessage="The Idmateria field is required."/>
+                    <h:outputLabel value="Nombre:" for="nombre" />
+                    <h:inputText id="nombre" value="#{materiasAmd.materia.nombre}" title="Nombre" required="true" requiredMessage="El Nombre es necesario."/>
+                    <h:outputLabel value="Creditos:" for="creditos" />
+                    
+                    <h:inputText id="creditos" value="#{materiasAmd.materia.creditos}" required="true" requiredMessage="Los creditos son necesarios." validatorMessage="Los creditos maximos son 10" title="Creditos">
+                                 <f:validateLongRange for="creditos" minimum="#{materiasAmd.getMinimo()}" maximum="#{materiasAmd.getMaximo()}"></f:validateLongRange>
+                    </h:inputText>
+                        
+                    <h:outputLabel value="Tipo:" for="tipo" />
+                    <h:selectOneMenu id="idmat" value="#{materiasAmd.materia.tipo}">
+                        
+                        
+                        <f:selectItem   itemValue='b' itemLabel="basica"></f:selectItem>
+                        <f:selectItem   itemValue='e' itemLabel="especialidad"></f:selectItem>
+                        
+                    </h:selectOneMenu>
+                    
+                </h:panelGrid>
+                <h:commandButton value="Aceptar" action="editarm" actionListener="#{materiasAmd.editar}"></h:commandButton>
+                    <h:commandButton value="Cancelar" action="editarm" actionListener="#{materiasAmd.buscar}"></h:commandButton>
+                    <h:commandButton value="Buscar otro" action="buscarm" ></h:commandButton>
+                    
+            </h:form>
+        </f:view>
+<br></br> 
+<br></br> 
+
+</div>
+    </ui:define>
+</ui:composition>
+    </h:body>
+</html>
+

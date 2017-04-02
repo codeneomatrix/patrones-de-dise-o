@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <f:view>
+
+
+            <h:form>
+                <h1><h:outputText value="Create/Edit"/></h1>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="ProductId:" for="productId" />
+                    <h:inputText id="productId" value="#{productoAdmo.producto.productId}" title="ProductId" required="true" requiredMessage="The ProductId field is required."/>
+                    <h:outputLabel value="PurchaseCost:" for="purchaseCost" />
+                    <h:inputText id="purchaseCost" value="#{productoAdmo.producto.purchaseCost}" title="PurchaseCost" />
+                    <h:outputLabel value="QuantityOnHand:" for="quantityOnHand" />
+                    <h:inputText id="quantityOnHand" value="#{productoAdmo.producto.quantityOnHand}" title="QuantityOnHand" />
+                    <h:outputLabel value="Markup:" for="markup" />
+                    <h:inputText id="markup" value="#{productoAdmo.producto.markup}" title="Markup" />
+                    <h:outputLabel value="Available:" for="available" />
+                    <h:inputText id="available" value="#{productoAdmo.producto.available}" title="Available" />
+                    <h:outputLabel value="Description:" for="description" />
+                    <h:inputText id="description" value="#{productoAdmo.producto.description}" title="Description" />
+                </h:panelGrid>
+            </h:form>
+        </f:view>
+
+    </h:body>
+</html>
+

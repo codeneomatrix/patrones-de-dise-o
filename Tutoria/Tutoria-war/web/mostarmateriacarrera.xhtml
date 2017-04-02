@@ -1,0 +1,84 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+         <ui:composition template="./newTemplate.xhtml">
+            <ui:define name="content">
+                <div align="center">
+        <f:view>
+            <h:form>
+                <h1><h:outputText value="Mostrar materias"/></h1>
+                <br></br> 
+                <br></br> 
+                <h:form>
+                <h:panelGrid columns="2">
+                    
+                    <h:outputLabel value="carrera:" for="idcarr" />
+                    <h:selectOneMenu id="idcarr" value="#{materiacarreraAdm.materiaCarrera.idcarr}">
+                        <f:selectItem itemLabel="--elija--" itemValue="#{null}"></f:selectItem>
+                        <f:selectItems value="#{tutoriasAdm.lista()}" var="carrera" itemValue="#{carrera.idcarrera}" itemLabel="#{carrera.nombre}"></f:selectItems>
+                        <f:ajax listener="#{materiacarreraAdm.mostrarmaterias()}" event="change" execute="@this"  render="idmat" />
+                    </h:selectOneMenu>
+                    
+                    </h:panelGrid>
+                    <br></br> 
+                    <br></br> 
+                   <h:outputLabel value="MATERIAS:" for="idmat" />
+                        <h:dataTable id="idmat" class="table table-bordered table-hover " value="#{materiacarreraAdm.mostrarmaterias()}" var="item">
+                            <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Idmateria"/>
+                        </f:facet>
+                                <h:outputText value="#{item.mat.idmateria}"/>
+                    </h:column>
+                            <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Nombre"/>
+                        </f:facet>
+                        <h:outputText value="#{item.mat.nombre}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Creditos"/>
+                        </f:facet>
+                        <h:outputText value="#{item.mat.creditos}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Tipo"/>
+                        </f:facet>
+                        <h:outputText value="#{item.mat.tipo}"/>
+                    </h:column>
+                            <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="semestre"/>
+                        </f:facet>
+                                <h:outputText value="#{item.semestre}"/>
+                    </h:column>
+                        </h:dataTable>
+                    </h:form>
+
+            </h:form>
+        </f:view>
+          <br></br> 
+        <br></br> 
+        <f:view>
+        <h:form>
+            <h:commandButton value="Agregarmaterias" action="agregarmaterias" actionListener="#{materiacarreraAdm.crearMateriaCarrera}"></h:commandButton>
+        </h:form>
+        </f:view>         
+        <br></br> 
+        <br></br> 
+
+</div>
+    </ui:define>
+</ui:composition>
+    </h:body>
+</html>
+
